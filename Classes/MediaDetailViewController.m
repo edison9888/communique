@@ -34,17 +34,32 @@
 	//icon. = record.imageURLString;
 	description.text = self.record.itemSummary;
 	
+	CGPoint audioLocation = CGPointMake(211,playAudioButton.center.y);
+	CGPoint videoLocation = CGPointMake(109,playVideoButton.center.y);
+	playAudioButton.center = audioLocation;
+	playVideoButton.center = videoLocation;
+	
 	if(self.record.itemAudioURLString == nil)
 	{
 		playAudioButton.hidden = YES;
 	} else {
 		playAudioButton.hidden = NO;
+		if (self.record.itemURLString == nil) {
+			
+			audioLocation = CGPointMake(163,playAudioButton.center.y);  
+			playAudioButton.center = audioLocation;
+		}
 	}
 	
 	if (self.record.itemURLString == nil) {
 		playVideoButton.hidden = YES;
 	} else {
 		playVideoButton.hidden = NO;
+		if (self.record.itemAudioURLString == nil) {
+			
+			videoLocation = CGPointMake(163,playVideoButton.center.y);  
+			playVideoButton.center = videoLocation;
+		}
 	}
 
 	
